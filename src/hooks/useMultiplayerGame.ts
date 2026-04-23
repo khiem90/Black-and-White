@@ -7,7 +7,7 @@ import {
   type PeerStatus,
   type Role,
 } from '../utils/peer';
-import type { GameState, RoundEntry, RoundResult, TurnState } from './useGame';
+import type { GameState, RoundEntry, RoundResult } from './useGame';
 
 // ── Constants ──
 const ALL_TILES = [0, 1, 2, 3, 4, 5, 6, 7, 8];
