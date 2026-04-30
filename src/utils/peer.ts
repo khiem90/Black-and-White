@@ -1,12 +1,6 @@
 import { Peer } from 'peerjs';
 import type { DataConnection } from 'peerjs';
 
-/**
- * Protocol version — bump when the message shape changes incompatibly.
- * Both peers must agree or the connection is dropped.
- */
-const PROTOCOL_VERSION = 1;
-
 export type Role = 'host' | 'guest';
 export type Color = 'black' | 'white';
 
@@ -185,7 +179,6 @@ export function createHost(): PeerSession {
   });
 
   peer.on('error', (err) => {
-    // eslint-disable-next-line no-console
     console.warn('[peer:host] error', err);
     setStatus(internal, 'disconnected');
   });
@@ -222,7 +215,6 @@ export function joinAsGuest(hostId: string): PeerSession {
   });
 
   peer.on('error', (err) => {
-    // eslint-disable-next-line no-console
     console.warn('[peer:guest] error', err);
     setStatus(internal, 'disconnected');
   });
