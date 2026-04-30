@@ -5,7 +5,7 @@ import type { DataConnection } from 'peerjs';
  * Protocol version — bump when the message shape changes incompatibly.
  * Both peers must agree or the connection is dropped.
  */
-export const PROTOCOL_VERSION = 1;
+const PROTOCOL_VERSION = 1;
 
 export type Role = 'host' | 'guest';
 export type Color = 'black' | 'white';
@@ -233,7 +233,7 @@ export function joinAsGuest(hostId: string): PeerSession {
 }
 
 /** Debug / test helper: clear all sessions (e.g. in a beforeEach). */
-export function __resetPeerSessions() {
+function __resetPeerSessions() {
   for (const s of sessions.values()) s.destroy();
   sessions.clear();
 }
