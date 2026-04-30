@@ -231,9 +231,3 @@ export function joinAsGuest(hostId: string): PeerSession {
   sessions.set(sessionKey, session);
   return session;
 }
-
-/** Debug / test helper: clear all sessions (e.g. in a beforeEach). */
-function __resetPeerSessions() {
-  for (const s of sessions.values()) s.destroy();
-  sessions.clear();
-}
